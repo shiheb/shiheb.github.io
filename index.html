@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <meta charset="UTF-8">
+       <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+       <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+
+  </head>
+  <body>
+    <div id="root"></div>
+
+ <script type="text/babel">
+
+ function ListItems (props){
+
+   return (
+   <li> {props.item}</li>
+   )
+ }
+
+  function ShoppingTitle(props){
+          return (
+              <div>
+                  <h1>{props.title}</h1>
+                  <h2>Total Number of Items: {props.numItems}</h2>
+              </div>
+
+          )
+      }
+ function ItemsShopping (props){
+
+   return (
+          <div>
+       <h4>{props.header}</h4>
+               <ol>
+                  <ListItems item = {props.items[0]}/>
+                  <ListItems item = {props.items[1]}/>
+                  <ListItems item = {props.items[2]}/>
+                </ol>
+           </div>
+      )
+
+ }
+ function ShoppingFinal(props){
+          return (
+              <div>
+                <ShoppingTitle title = "Welcome to our Rendered Shop " numItems={4500}/>
+
+              <ItemsShopping header="Clothes" items = {[ "Pants","Shirt" ,"Blouse" ]}/>
+              <ItemsShopping header="Food" items = {[ "Apple" , "Cheese","Bread" ]}/>
+              <ItemsShopping header="Parfume" items = {[ "Beckham", "Zara","Black Motion" ]}/>
+              </div>
+
+          )
+      }
+   ReactDOM.render(
+           <ShoppingFinal />,
+           document.getElementById("root")
+       )
+
+      </script>
+
+
+  </body>
+</html>
